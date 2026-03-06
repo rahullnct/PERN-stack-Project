@@ -1,0 +1,131 @@
+/* ===== SIDEBAR WRAPPER ===== */
+
+.sidebar_wrapper{
+    position: relative;
+    width: 260px;
+    min-width: 260px;
+    height: 100vh;
+    background-color: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+/* ===== HR LINE ===== */
+
+.sidebar_wrapper hr{
+    border: none;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* ===== NAV LINK SECTION ===== */
+
+.navlinks_tabs_wrapper{
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Hide scrollbar */
+
+.navlinks_tabs_wrapper::-webkit-scrollbar{
+    display: none;
+}
+
+.navlinks_tabs_wrapper{
+    scrollbar-width: none;
+}
+
+/* ===== CONTAINER ===== */
+
+.navlinks_tabs_container{
+    padding: 16px;
+}
+
+/* ===== NAV LINKS GROUP ===== */
+
+.navlinks_tabs{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ===== NAV LINK ===== */
+
+.nav_links{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #1f2937;
+    transition: background 0.2s ease;
+}
+
+/* ===== HOVER EFFECT ===== */
+
+.nav_links:hover{
+    background-color: #f3f4f6;
+}
+
+/* ===== ACTIVE LINK ===== */
+
+.nav_links.active{
+    background-color: #e5e7eb;
+    font-weight: 500;
+}
+
+/* ===== SIDEBAR TEXT ===== */
+
+.sidebar_heading{
+    font-size: 14px;
+}
+
+/* ===== SETTINGS BUTTON ===== */
+
+.navlinks_tab_same_btn{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #1f2937;
+    transition: background 0.2s ease;
+}
+
+/* ===== SETTINGS HOVER ===== */
+
+.navlinks_tab_same_btn:hover{
+    background-color: #f3f4f6;
+}
+
+/* ===== SETTINGS TEXT ===== */
+
+.sidebar_setting{
+    font-size: 14px;
+}
+
+/* ===== MOBILE SIDEBAR ===== */
+
+@media (max-width: 768px){
+
+.sidebar_wrapper{
+    position: absolute;
+    left: -260px;
+    top: 0;
+}
+
+/* when sidebar open */
+
+.sidebar_wrapper.active{
+    left: 0;
+}
+
+}
