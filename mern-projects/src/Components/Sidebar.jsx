@@ -1,9 +1,12 @@
-import { LayoutDashboardIcon,FolderOpenIcon,UsersIcon,SettingsIcon} from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { LayoutDashboardIcon,FolderOpenIcon,UsersIcon,SettingsIcon,ChevronDown,Check} from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import "../All_CSS/Sidebar.css";
 import Mytaskbar from './Mytaskbar';
 import Myproject from './Myproject';
+import { useDispatch, useSelector } from 'react-redux';
+import { dummyWorkspaces } from '../assets/assets';
+import { setCurrentWorkspace } from '../Slice_Pack/WorkSpaceSlice';
 
 function Sidebar({isSidebarOpen,setSidebarOpen}){
     const itemname=[{
@@ -23,6 +26,7 @@ function Sidebar({isSidebarOpen,setSidebarOpen}){
     } 
 ]
 
+console.log("dummy_workspace:",dummyWorkspaces);
 const sideref=useRef(null);
 useEffect(()=>{
     function clickoutsidehandler(event){
@@ -34,11 +38,57 @@ useEffect(()=>{
     return ()=> document.removeEventListener("mousedown",clickoutsidehandler);
 },[setSidebarOpen])
 
+function selectworkspace_handler(organization_id){
+      dispatch(setCurrentWorkspace(organization_id))
+      
+}
 
+const {workspaces}=useSelector((state)=> state.workspace);
+const currentworkspace=useSelector((state)=> state.workspace?.currentWorkspace);
+console.log("workspace:",workspaces);
+const[isopen,setIsOpen]=useState(false);
+const dispatch=useDispatch();
 
 return(
     <div ref={sideref} className='sidebar_wrapper'  > 
-    <hr/>
+    <button onClick={()=> setIsOpen((prev)=>!prev)} className='workspace'>
+        <div className='workspace_selection'>
+          <img  className="workspace_single_image" src={currentworkspace?.image_url} alt="workspace_image"/>
+          <div className='current_workspace'>
+          <h4 className='workspace_heading'>{currentworkspace?.name}</h4>
+          <p className='workspace_length'>{workspaces.length} workspaces</p>
+          </div>
+          <ChevronDown size={15} />
+        </div>
+    </button>
+
+    {
+        isopen && (
+            <div className='workspace_container'>
+                <p className='new_workspace'>WORKSPACES</p>
+                
+                {
+                    dummyWorkspaces.map((item)=>(
+                        <div className='all_workspace_container' key={item.id} onClick={selectworkspace_handler(item.id)}>
+                            <div className='single_workspace'>
+                                <img  className="workspace_images" src={item.image_url} alt='workspace_image'/>
+                                <div className='wokspace_detailed'>
+                                    <h4 className='my_heading'>{item.name}</h4>
+                                    <p className='my_members'>{item.members.length || 0} members</p> 
+                                </div>
+                                {currentworkspace.id === item.id && 
+                            (<Check size={20}/>)
+                        }
+                            </div>
+                        
+                            
+                        </div>
+                    ))
+                }
+                
+            </div>
+        )
+    }
     <div className='navlinks_tabs_wrapper'>
         <div className='navlinks_tabs_container'>
             <div className='navlinks_tabs'>
