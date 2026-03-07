@@ -1,8 +1,9 @@
-import {FolderClosed,CircleCheckBig ,UsersRound ,TriangleAlert,ArrowRight, FolderOpen} from "lucide-react";
+import {FolderClosed,CircleCheckBig ,UsersRound ,TriangleAlert,ArrowRight, FolderOpen,UserRound,CalendarRange} from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import New_Project_Dialogue from "../All_Dialogue/New_Project_Dialogue";
 import "../All_CSS/Dashboard.css";
+import { dummyWorkspaces } from "../assets/assets";
 
 function Dashboard() {
   
@@ -37,15 +38,19 @@ function Dashboard() {
 const [dialogueOpen,setdialogueOpen]=useState(false);
 const [projects,setprojects]= useState([]);
 
+const [this_project,setthis_project]=useState(dummyWorkspaces?.[0]?.projects?.[0]);
+// console.log("projects:",this_project);
+
+
     return (
         <div className="dashboard_wrapper">
             <div className="dashboard_container">
                 <div className="upper_heading">
                     <div >
-                        <h2>Welcome Back,</h2>
-                        <p>here's what happening with your project today</p>
+                        <h2 className="dashboard_heading">Welcome Back,</h2>
+                        <p className="dashboard_subheading">here's what happening with your project today</p>
                     </div>
-                    <button onClick={()=> setdialogueOpen(true)} className="new_project_dialogue">+New Project </button>
+                    <button onClick={()=> setdialogueOpen(true)} className="project_dialogue_btn">+New Project </button>
                     {dialogueOpen && <New_Project_Dialogue dialogueOpen={dialogueOpen} setdialogueOpen={setdialogueOpen}/>}
                 </div>
               
@@ -63,36 +68,110 @@ const [projects,setprojects]= useState([]);
                   <div className="left_side_card_containers">
                      <div className="project_overview_container">
                        <div className="proejct_overview_heading">
-                        <h3>Porject Overview</h3>
+                        <h3 className="my_project_overview_heading">Porject Overview</h3>
                        <span>View all <ArrowRight size={15}/></span>
                        </div>
                        <div className="no_projects">
                          {
-                        projects.length === 0 ?
+                        !this_project ?
                         (
-                            <div> 
-                                <FolderOpen  size={20}/>
+                            <div className="no_project"> 
+                                <div className="icon_inside_circle"><FolderOpen  size={20}/></div>
                                 <p>No projects yet</p>
                                 <button onClick={()=>setdialogueOpen(true)}>Create a new Project</button>
-                                {/* <New_Project_Dialogue /> */}
+                                
                             </div>
                         ):(
                             <div>
-                                <div>
-                                    <p>{projects.name}</p>
-                                     <button>project active</button>   
+                                <div className="my_project_heading">
+                                    <h4>{this_project.name}</h4>
+                                     <button className="new_btn">{this_project.status}</button> 
                                 </div>
-                                <p></p>
-
+                              <p>{this_project.description}</p>
+                              <div className="project_members">
+                                  <div className="only_member">
+                                    <UserRound size={20}/>
+                                    <span className="project_text">{this_project.members.length} members</span>
+                                  </div>
+                                  <div className="project_start_date">
+                                    <CalendarRange size={20}/>
+                                    <span className="project_text">{this_project.start_date}</span>
+                                    </div>
+                                </div>
+                                <div className="project_progress">
+                                      <p className="project_text_small">Progress</p>
+                                      <span className="project_text_small">0%</span>
+                                    </div>
+                                <div className="progress_bar"></div>
                             </div>
                         )
                        }
                        </div>
                       
                      </div>
+                      <br/>
+                      {/* ---------------- */}
+                      <div className="project_overview_container">
+                       <div className="proejct_overview_heading">
+                        <h3 className="my_project_overview_heading">Recent Activity</h3>
+                       </div>
+                       <div className="no_projects">
+                         {
+                        projects.length === 0 ?
+                        (
+                            <div className="no_project"> 
+                                <div className="icon_inside_circle"><FolderOpen  size={20}/></div>
+                                <p>No projects yet</p>
+                                <button onClick={()=>setdialogueOpen(true)}>Create a new Project</button>
+                                
+                            </div>
+                        ):(
+                            <div>
+                                <div className="my_project_heading">
+                                    <h4>{this_project.name}</h4>
+                                     <button className="new_btn">{this_project.status}</button> 
+                                </div>
+                              <p>{this_project.description}</p>
+                              <div className="project_members">
+                                  <div className="only_member">
+                                    <UserRound size={20}/>
+                                    <span className="project_text">{this_project.members.length} members</span>
+                                  </div>
+                                  <div className="project_start_date">
+                                    <CalendarRange size={20}/>
+                                    <span className="project_text">{this_project.start_date}</span>
+                                    </div>
+                                </div>
+                                <div className="project_progress">
+                                      <p className="project_text_small">Progress</p>
+                                      <span className="project_text_small">0%</span>
+                                    </div>
+                                <div className="progress_bar"></div>
+                            </div>
+                        )
+                       }
+                       </div>
+                      
+                     </div>
+
                   </div>
                   <div className="right_side_card_Containers">
-
+                         <div className="task_name_heading">
+                            <div className="task_with_heading">
+                                <UserRound size={15}/>
+                                <h3 className="my_task_heading">My tasks</h3>
+                            </div>
+                            <span className="total_task">{this_project.tasks.length}</span>
+                         </div>
+                         {
+                            this_project?.tasks?.map((item,index)=>(
+                                <div className="all_tasks" key={index}>
+                                 <p className="task_title">{item?.title}</p>
+                                    <p className="task_priority">{item.type}-{item.priority} priority</p>
+                                </div>
+                            ))
+                         }
+                         
                   </div>
                </div>
                

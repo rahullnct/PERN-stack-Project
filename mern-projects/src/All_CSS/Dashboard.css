@@ -3,8 +3,8 @@
 /* ============================= */
 
 .dashboard_wrapper{
-    width: 100%;
-    padding: 25px;
+    width:100%;
+    padding:25px;
     background:#f8fafc;
     min-height:100vh;
 }
@@ -25,19 +25,19 @@
     margin-bottom:30px;
 }
 
-.upper_heading h2{
+.dashboard_heading{
     font-size:24px;
     font-weight:600;
     color:#111827;
 }
 
-.upper_heading p{
+.dashboard_subheading{
     font-size:14px;
     color:#6b7280;
     margin-top:4px;
 }
 
-.upper_heading button{
+.project_dialogue_btn{
     background:#2563eb;
     color:white;
     border:none;
@@ -48,7 +48,7 @@
     transition:0.2s;
 }
 
-.upper_heading button:hover{
+.project_dialogue_btn:hover{
     background:#1d4ed8;
 }
 
@@ -106,7 +106,7 @@
 .project_overview_container{
     background:white;
     border-radius:10px;
-    padding:20px;
+    /* padding:20px; */
     border:1px solid #e5e7eb;
 }
 
@@ -118,12 +118,16 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:20px;
+    /* margin-bottom:0px; */
+    border: 1px solid #e5e7eb;
+    
+
 }
 
-.proejct_overview_heading h3{
+.my_project_overview_heading{
     font-size:18px;
     font-weight:600;
+    margin-left: 10px;
 }
 
 .proejct_overview_heading span{
@@ -133,6 +137,7 @@
     font-size:14px;
     color:#2563eb;
     cursor:pointer;
+    margin-right: 5px;
 }
 
 /* ============================= */
@@ -147,19 +152,29 @@
     padding:40px 0;
 }
 
-.no_projects div{
+.no_project{
     display:flex;
     flex-direction:column;
     align-items:center;
     gap:12px;
 }
 
-.no_projects p{
+.icon_inside_circle{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#e0ecff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.no_project p{
     font-size:14px;
     color:#6b7280;
 }
 
-.no_projects button{
+.no_project button{
     padding:8px 16px;
     border:none;
     background:#2563eb;
@@ -169,71 +184,206 @@
     font-size:14px;
 }
 
-.no_projects button:hover{
+.no_project button:hover{
     background:#1d4ed8;
 }
 
 /* ============================= */
-/* RIGHT SIDE PANEL */
+/* PROJECT DETAILS */
+/* ============================= */
+
+.my_project_heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+}
+
+.new_btn{
+    background:#e0ecff;
+    border:none;
+    padding:4px 10px;
+    border-radius:6px;
+    font-size:12px;
+    color:#2563eb;
+}
+
+.project_members{
+    display:flex;
+    gap:20px;
+    margin-top:12px;
+}
+
+.only_member,
+.project_start_date{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.project_text{
+    font-size:13px;
+    color:#6b7280;
+}
+
+/* ============================= */
+/* PROGRESS BAR */
+/* ============================= */
+
+.project_progress{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+}
+
+.project_text_small{
+    font-size:12px;
+    color:#6b7280;
+}
+
+.progress_bar{
+    width:100%;
+    height:8px;
+    background:#e5e7eb;
+    border-radius:6px;
+    margin-top:6px;
+    position:relative;
+    overflow:hidden;
+}
+
+.progress_bar::after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:30%;
+    background:#2563eb;
+    border-radius:6px;
+}
+
+/* ============================= */
+/* RIGHT SIDE TASK PANEL */
 /* ============================= */
 
 .right_side_card_Containers{
-    flex:1;
     background:white;
     border-radius:10px;
     border:1px solid #e5e7eb;
     padding:20px;
 }
 
+/* TASK HEADER */
+
+.task_name_heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.task_with_heading{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.my_task_heading{
+    font-size:16px;
+    font-weight:600;
+    color:#111827;
+}
+
+.total_task{
+    background:#eef2ff;
+    color:#2563eb;
+    font-size:13px;
+    padding:3px 10px;
+    border-radius:20px;
+}
+
+/* ============================= */
+/* TASK LIST */
+/* ============================= */
+
+.all_tasks{
+    padding:12px;
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+    margin-bottom:10px;
+    transition:0.2s;
+    cursor:pointer;
+}
+
+.all_tasks:hover{
+    background:#f8fafc;
+    border-color:#d1d5db;
+}
+
+/* TASK TITLE */
+
+.task_title{
+    font-size:14px;
+    font-weight:500;
+    color:#111827;
+    margin-bottom:4px;
+}
+
+/* TASK PRIORITY */
+
+.task_priority{
+    font-size:12px;
+    color:#6b7280;
+}
+
+/* ============================= */
+/* NEW PROJECT DIALOG */
+/* ============================= */
+
 .new_project_wrapper{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100vh;
-background:rgba(0,0,0,0.4);
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:1000;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,0.4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
 }
 
 .new_project_container{
-background:white;
-padding:25px;
-border-radius:10px;
-width:420px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    width:420px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
 .heading_and_subheading{
-position:relative;
+    position:relative;
 }
 
 .new_project_heading{
-font-size:20px;
-font-weight:600;
-margin-bottom:6px;
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:6px;
 }
 
 .subheading{
-font-size:14px;
-color:#6b7280;
+    font-size:14px;
+    color:#6b7280;
 }
 
 .close_dialogue{
-position:absolute;
-right:0;
-top:0;
-background:none;
-border:none;
-cursor:pointer;
+    position:absolute;
+    right:0;
+    top:0;
+    background:none;
+    border:none;
+    cursor:pointer;
 }
-
-
-
-
-
 
 /* ============================= */
 /* RESPONSIVE */
