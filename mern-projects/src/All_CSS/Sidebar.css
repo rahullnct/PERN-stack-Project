@@ -73,6 +73,7 @@
 .current_workspace{
     flex:1;
     text-align: left;
+  
 }
 .workspace_heading{
     font-size: 14px;
@@ -80,8 +81,9 @@
     color: #111827;
 }
 .workspace_length{
-    font-size: 12px;
+    font-size: 15px;
     color: #6b7280;
+    margin-bottom: 10px;
 }
 
 .workspace_container{
@@ -132,6 +134,7 @@
 }
 .workspace_detailed{
     flex: 1;
+
 }
 .my_heading{
     font-size: 14px;
@@ -139,8 +142,9 @@
     color: #111827;
 }
 .my_members{
-    font-size: 12px;
+    font-size: 15px;
     color: #6b7280;
+    
 }
 
 

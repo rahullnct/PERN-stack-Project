@@ -38,10 +38,6 @@ useEffect(()=>{
     return ()=> document.removeEventListener("mousedown",clickoutsidehandler);
 },[setSidebarOpen])
 
-function selectworkspace_handler(organization_id){
-      dispatch(setCurrentWorkspace(organization_id))
-      
-}
 
 const {workspaces}=useSelector((state)=> state.workspace);
 const currentworkspace=useSelector((state)=> state.workspace?.currentWorkspace);
@@ -49,7 +45,16 @@ console.log("workspace:",workspaces);
 const[isopen,setIsOpen]=useState(false);
 const dispatch=useDispatch();
 
-return(
+function selectworkspace_handler(organization_id){
+      dispatch(setCurrentWorkspace(organization_id))
+      setIsOpen(false);
+    
+}
+
+
+
+
+  return currentworkspace && (
     <div ref={sideref} className='sidebar_wrapper'  > 
     <button onClick={()=> setIsOpen((prev)=>!prev)} className='workspace'>
         <div className='workspace_selection'>
@@ -69,14 +74,14 @@ return(
                 
                 {
                     dummyWorkspaces.map((item)=>(
-                        <div className='all_workspace_container' key={item.id} onClick={selectworkspace_handler(item.id)}>
+                        <div className='all_workspace_container' key={item.id} onClick={()=>selectworkspace_handler(item.id)}>
                             <div className='single_workspace'>
                                 <img  className="workspace_images" src={item.image_url} alt='workspace_image'/>
-                                <div className='wokspace_detailed'>
+                                <div className='workspace_detailed'>
                                     <h4 className='my_heading'>{item.name}</h4>
                                     <p className='my_members'>{item.members.length || 0} members</p> 
                                 </div>
-                                {currentworkspace.id === item.id && 
+                                {currentworkspace?.id === item.id && 
                             (<Check size={20}/>)
                         }
                             </div>

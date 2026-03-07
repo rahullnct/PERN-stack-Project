@@ -86,48 +86,45 @@
 }
 
 /* ============================= */
-/* LOWER SECTION */
+/* MAIN DASHBOARD GRID */
 /* ============================= */
 
 .full_Card_container{
-    display:flex;
+    display:grid;
+    grid-template-columns: 2.5fr 1fr;
     gap:20px;
     margin-top:20px;
 }
 
 /* ============================= */
-/* LEFT CARD */
+/* LEFT PROJECT AREA */
 /* ============================= */
 
 .left_side_card_containers{
-    flex:2;
+    width:100%;
 }
+
+/* PROJECT OVERVIEW CARD */
 
 .project_overview_container{
     background:white;
-    border-radius:10px;
-    /* padding:20px; */
     border:1px solid #e5e7eb;
+    border-radius:10px;
+    padding:20px;
 }
 
-/* ============================= */
-/* PROJECT OVERVIEW HEADER */
-/* ============================= */
+/* HEADER */
 
 .proejct_overview_heading{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    /* margin-bottom:0px; */
-    border: 1px solid #e5e7eb;
-    
-
+    margin-bottom:20px;
 }
 
 .my_project_overview_heading{
     font-size:18px;
     font-weight:600;
-    margin-left: 10px;
 }
 
 .proejct_overview_heading span{
@@ -137,67 +134,46 @@
     font-size:14px;
     color:#2563eb;
     cursor:pointer;
-    margin-right: 5px;
 }
 
 /* ============================= */
-/* NO PROJECT UI */
+/* PROJECT LIST */
 /* ============================= */
 
 .no_projects{
     display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px 0;
-}
-
-.no_project{
-    display:flex;
     flex-direction:column;
-    align-items:center;
-    gap:12px;
+    gap:18px;
 }
 
-.icon_inside_circle{
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    background:#e0ecff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+/* SINGLE PROJECT CARD */
+
+.project_container{
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+    padding:16px;
+    transition:0.2s;
 }
 
-.no_project p{
-    font-size:14px;
-    color:#6b7280;
+.project_container:hover{
+    background:#f9fafb;
 }
 
-.no_project button{
-    padding:8px 16px;
-    border:none;
-    background:#2563eb;
-    color:white;
-    border-radius:6px;
-    cursor:pointer;
-    font-size:14px;
-}
-
-.no_project button:hover{
-    background:#1d4ed8;
-}
-
-/* ============================= */
-/* PROJECT DETAILS */
-/* ============================= */
+/* PROJECT TITLE */
 
 .my_project_heading{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:8px;
+    margin-bottom:6px;
 }
+
+.my_project_heading h4{
+    font-size:16px;
+    font-weight:600;
+}
+
+/* STATUS BADGE */
 
 .new_btn{
     background:#e0ecff;
@@ -208,10 +184,22 @@
     color:#2563eb;
 }
 
+/* PROJECT DESCRIPTION */
+
+.project_container p{
+    font-size:13px;
+    color:#6b7280;
+    margin-bottom:10px;
+}
+
+/* ============================= */
+/* PROJECT MEMBERS */
+/* ============================= */
+
 .project_members{
     display:flex;
     gap:20px;
-    margin-top:12px;
+    margin-bottom:10px;
 }
 
 .only_member,
@@ -222,18 +210,18 @@
 }
 
 .project_text{
-    font-size:13px;
+    font-size:12px;
     color:#6b7280;
 }
 
 /* ============================= */
-/* PROGRESS BAR */
+/* PROGRESS */
 /* ============================= */
 
 .project_progress{
     display:flex;
     justify-content:space-between;
-    margin-top:15px;
+    margin-top:10px;
 }
 
 .project_text_small{
@@ -256,10 +244,46 @@
     position:absolute;
     left:0;
     top:0;
+    width:40%;
     height:100%;
-    width:30%;
     background:#2563eb;
     border-radius:6px;
+}
+
+/* ============================= */
+/* EMPTY PROJECT STATE */
+/* ============================= */
+
+.no_project{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    padding:30px;
+}
+
+.icon_inside_circle{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#eef2ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.no_project p{
+    font-size:14px;
+    color:#6b7280;
+}
+
+.no_project button{
+    background:#2563eb;
+    border:none;
+    color:white;
+    padding:8px 16px;
+    border-radius:6px;
+    cursor:pointer;
 }
 
 /* ============================= */
@@ -268,9 +292,10 @@
 
 .right_side_card_Containers{
     background:white;
-    border-radius:10px;
     border:1px solid #e5e7eb;
+    border-radius:10px;
     padding:20px;
+    height:fit-content;
 }
 
 /* TASK HEADER */
@@ -285,55 +310,51 @@
 .task_with_heading{
     display:flex;
     align-items:center;
-    gap:8px;
+    gap:6px;
 }
 
 .my_task_heading{
     font-size:16px;
     font-weight:600;
-    color:#111827;
 }
 
 .total_task{
     background:#eef2ff;
     color:#2563eb;
-    font-size:13px;
     padding:3px 10px;
     border-radius:20px;
+    font-size:12px;
 }
 
-/* ============================= */
-/* TASK LIST */
-/* ============================= */
+/* TASK CARD */
 
 .all_tasks{
-    padding:12px;
     border:1px solid #e5e7eb;
     border-radius:8px;
+    padding:10px;
     margin-bottom:10px;
-    transition:0.2s;
-    cursor:pointer;
 }
-
-.all_tasks:hover{
-    background:#f8fafc;
-    border-color:#d1d5db;
-}
-
-/* TASK TITLE */
 
 .task_title{
     font-size:14px;
     font-weight:500;
-    color:#111827;
-    margin-bottom:4px;
 }
-
-/* TASK PRIORITY */
 
 .task_priority{
     font-size:12px;
     color:#6b7280;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media(max-width:900px){
+
+.full_Card_container{
+    grid-template-columns:1fr;
+}
+
 }
 
 /* ============================= */
