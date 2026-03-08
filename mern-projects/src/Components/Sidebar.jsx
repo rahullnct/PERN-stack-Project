@@ -1,4 +1,4 @@
-import { LayoutDashboardIcon,FolderOpenIcon,UsersIcon,SettingsIcon,ChevronDown,Check} from 'lucide-react';
+import { LayoutDashboardIcon,FolderOpenIcon,UsersIcon,SettingsIcon,ChevronDown,Check,Plus} from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import "../All_CSS/Sidebar.css";
@@ -7,6 +7,7 @@ import Myproject from './Myproject';
 import { useDispatch, useSelector } from 'react-redux';
 import { dummyWorkspaces } from '../assets/assets';
 import { setCurrentWorkspace } from '../Slice_Pack/WorkSpaceSlice';
+// import NewWorkspace from '../All_Dialogue/NewWorkspace';
 
 function Sidebar({isSidebarOpen,setSidebarOpen}){
     const itemname=[{
@@ -90,7 +91,14 @@ function selectworkspace_handler(organization_id){
                         </div>
                     ))
                 }
-                
+                <div className='new_workspace_starting'>
+                 <p className='new_workspace_heading'>
+                    <Plus size={15}/> New Workspace 
+                 </p>
+
+                 {/* <NewWorkspace/> */}
+                </div>
+
             </div>
         )
     }

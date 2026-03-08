@@ -5,6 +5,7 @@ import New_Project_Dialogue from "../All_Dialogue/New_Project_Dialogue";
 import "../All_CSS/Dashboard.css";
 import { dummyWorkspaces } from "../assets/assets";
 import { useSelector } from "react-redux";
+import Taskbar from "../Components/Taskbar";
 
 function Dashboard() {
   
@@ -36,28 +37,26 @@ function Dashboard() {
 
 
 ]
+
+
 const [dialogueOpen,setdialogueOpen]=useState(false);
 const [projects,setprojects]= useState([]);
 
-// const [this_project,setthis_project]=useState([]);
+const [this_project,setthis_project]=useState([]);
 // console.log("projects:",this_project);
 
 const {currentWorkspace}=useSelector((state)=> state.workspace);
-const[task,setTask]=useState([]);
+
 console.log("current_workspace:",currentWorkspace);
-console.log("all tasks",task);
-console.log("projects:,",projects);
+
+// console.log("projects:,",projects);
 
 useEffect(()=> {
     if(currentWorkspace){
     setprojects(currentWorkspace.projects || null)
     }
 },[currentWorkspace])
-useEffect(()=>{
-     if(currentWorkspace){
-        setTask(currentWorkspace.projects.flatMap((projects)=> projects.tasks));
-     }
-},[currentWorkspace])
+
 
 
 
@@ -66,7 +65,7 @@ useEffect(()=>{
             <div className="dashboard_container">
                 <div className="upper_heading">
                     <div >
-                        <h2 className="dashboard_heading">Welcome Back,</h2>
+                        <h2 className="dashboard_heading">Welcome Back, {currentWorkspace.name}</h2>
                         <p className="dashboard_subheading">here's what happening with your project today</p>
                     </div>
                     <button onClick={()=> setdialogueOpen(true)} className="project_dialogue_btn">+New Project </button>
@@ -134,7 +133,7 @@ useEffect(()=>{
                      </div>
                       <br/>
                       {/* --------Activity Container-------- */}
-                      {/* <div className="project_overview_container">
+                      <div className="project_overview_container">
                        <div className="proejct_overview_heading">
                         <h3 className="my_project_overview_heading">Recent Activity</h3>
                        </div>
@@ -175,17 +174,18 @@ useEffect(()=>{
                        }
                        </div>
                       
-                     </div> */}
+                     </div>
 
                   </div>
-                  <div className="right_side_card_Containers">
-                         <div className="task_name_heading">
+                  
+                        <Taskbar/>
+                         {/* <div className="task_name_heading">
                             <div className="task_with_heading">
                                 <UserRound size={15}/>
                                 <h3 className="my_task_heading">My tasks</h3>
-                            </div>
+                            </div> */}
                             {/* <span className="total_task">{projects.tasks.length}</span> */}
-                         </div>
+                         {/* </div> */}
                          {/* {
                             this_project?.tasks?.map((item,index)=>(
                                 <div className="all_tasks" key={index}>
@@ -195,7 +195,7 @@ useEffect(()=>{
                             ))
                          } */}
                          
-                  </div>
+                  
                </div>
                
             </div>

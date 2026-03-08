@@ -147,6 +147,26 @@
     
 }
 
+.new_workspace_starting{
+    margin-top: 3px;
+    padding-top: 4px;
+    border-top: 1px solid #e5e7eb;
+}
+.new_workspace_heading{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #2563eb;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.new_workspace_starting:hover{
+ background: #f3f4f6;
+}
+
 
 /* ===== NAV LINKS GROUP ===== */
 

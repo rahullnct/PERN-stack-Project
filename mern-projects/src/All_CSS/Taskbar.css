@@ -1,0 +1,55 @@
+
+.right_side_card_Containers{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    padding:20px;
+    height:fit-content;
+}
+
+/* TASK HEADER */
+
+.task_name_heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.task_with_heading{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.my_task_heading{
+    font-size:16px;
+    font-weight:600;
+}
+
+.total_task{
+    background:#eef2ff;
+    color:#2563eb;
+    padding:3px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+/* TASK CARD */
+
+.all_tasks{
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+    padding:10px;
+    margin-bottom:10px;
+}
+
+.task_title{
+    font-size:14px;
+    font-weight:500;
+}
+
+.task_priority{
+    font-size:12px;
+    color:#6b7280;
+}
