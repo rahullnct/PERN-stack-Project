@@ -29,12 +29,13 @@
     font-size:24px;
     font-weight:600;
     color:#111827;
+    margin-bottom: 4px;
 }
 
 .dashboard_subheading{
     font-size:14px;
     color:#6b7280;
-    margin-top:4px;
+    /* margin-top:4px; */
 }
 
 .project_dialogue_btn{
@@ -120,13 +121,19 @@
     justify-content:space-between;
     align-items:center;
     margin-bottom:20px;
-    border: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    /* padding-top: 22px; */
 }
 
 .my_project_overview_heading{
-    font-size:18px;
+    /* font-size:18px;
     font-weight:600;
-    margin-left: 10px;
+    margin-left: 10px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px;
 }
 
 .proejct_overview_heading span{
@@ -168,7 +175,7 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:6px;
+    margin-bottom:8px;
 }
 
 .my_project_heading h4{
@@ -278,6 +285,7 @@
 .no_project p{
     font-size:14px;
     color:#6b7280;
+    margin-top: 4px;
 }
 
 .no_project button{

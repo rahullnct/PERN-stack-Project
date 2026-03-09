@@ -1,19 +1,21 @@
-
 .right_side_card_Containers{
     background:white;
     border:1px solid #e5e7eb;
     border-radius:10px;
-    padding:20px;
+    padding:0; /* remove container padding */
     height:fit-content;
 }
 
+/* ============================= */
 /* TASK HEADER */
+/* ============================= */
 
 .task_name_heading{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:15px;
+    padding:16px 20px;
+    border-bottom:1px solid #e5e7eb;
 }
 
 .task_with_heading{
@@ -35,13 +37,22 @@
     font-size:12px;
 }
 
-/* TASK CARD */
+/* ============================= */
+/* TASK BODY */
+/* ============================= */
 
 .all_tasks{
     border:1px solid #e5e7eb;
     border-radius:8px;
-    padding:10px;
-    margin-bottom:10px;
+    padding:12px;
+    margin:12px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.all_tasks:last-child{
+    margin-bottom:20px;
 }
 
 .task_title{

@@ -6,7 +6,7 @@ import "../All_CSS/NewProject.css";
 function New_Project_Dialogue({dialogueOpen,setdialogueOpen}){
 
     const[formtype,setformtype]=useState({
-        project_name:"", description:"",status:"planning",priority:"medium",
+        project_name:"", description:"",status:"planning",priority:"",
         start_date:"",end_date:""
     })
     const[is_submit,set_submit]=useState(false);
@@ -64,7 +64,7 @@ function New_Project_Dialogue({dialogueOpen,setdialogueOpen}){
 
                 <div className="status">
                     <lable className="new_project_dialogue">Status</lable>
-                    <select value={formtype.status} required>
+                    <select name="status" value={formtype.status} onChange={changehandler} required>
                         <option value="planning">Panning</option>
                         <option value="Active">Active</option>
                         <option value="Completed">Completed</option>
@@ -73,8 +73,8 @@ function New_Project_Dialogue({dialogueOpen,setdialogueOpen}){
                         
                     </select>
 
-              <lable className="new_project_dialogue">Priority</lable>
-                    <select value={formtype.priority} required>
+              <label className="new_project_dialogue" >Priority</label>
+                    <select name="priority" value={formtype.priority} onChange={changehandler} required>
                         <option value="easy">Easy</option>
                         <option value="Medium">Medium</option>
                         <option value="Hard">Hard</option>
@@ -82,19 +82,21 @@ function New_Project_Dialogue({dialogueOpen,setdialogueOpen}){
                 </div>
 
                 <div className="date_and_time">
-                    <lable className="new_project_dialogue">Start Date</lable>
+                    <label className="new_project_dialogue">Start Date</label>
                     <input 
                     type="Date"
                     name="start_date"
                     value={formtype.start_date}
+                    onChange={changehandler}
                     required
                     />
 
-              <lable className="new_project_dialogue">End Date</lable>
+              <label className="new_project_dialogue">End Date</label>
                     <input 
                     type="Date"
                     name="end_date"
                     value={formtype.end_date}
+                    onChange={changehandler}
                     required
                     />
                 </div>

@@ -80,7 +80,7 @@ console.log("my_task:",my_task);
                           {
                              in_progressTask.length === 0 ? (
                                 <div className="overdue_task">
-                                    no Inprogress task
+                                    <p>no Inprogress task</p>
                                 </div>
                              ):
 
