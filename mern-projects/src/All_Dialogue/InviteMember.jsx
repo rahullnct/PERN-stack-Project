@@ -14,7 +14,7 @@ function InviteMember({dialogueOpen,setdialogueOpen}){
         }))
     }
     const {currentWorkspace} = useSelector((state)=> state.workspace)
-    // console.log("invite_member:",currentWorkspace);
+    console.log("invite_member:",currentWorkspace);
 
     function submithandler(event){
           event.preventDefault();

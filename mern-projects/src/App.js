@@ -18,7 +18,7 @@ function App() {
       <Route path='/task-details' element={<TaskDetails/>}/>
       <Route path='/project-details' element={<ProjectDetail/>}/>
       <Route path='/team' element={<Team/>}/>
-      <Route path='/project' element={<Projects/>}/>
+      <Route path='project' element={<Projects/>}/>
       {/* <Route path='/settings' element={}/> */}
       </Route>
     </Routes>
