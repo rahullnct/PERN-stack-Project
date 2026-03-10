@@ -1,0 +1,104 @@
+/* ============================= */
+/* TEAM PAGE WRAPPER */
+/* ============================= */
+
+.team_wrapper{
+    width:100%;
+    padding:25px;
+    background:#f8fafc;
+    min-height:100vh;
+}
+
+.team_container{
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ============================= */
+/* SEARCH TEAM MEMBER */
+/* ============================= */
+
+.search_team_member{
+    width:100%;
+    max-width:350px;
+    padding:10px 12px;
+    border:1px solid #e5e7eb;
+    border-radius:6px;
+    font-size:14px;
+    outline:none;
+    margin-bottom:20px;
+}
+
+.search_team_member:focus{
+    border-color:#2563eb;
+}
+
+/* ============================= */
+/* TABLE CONTAINER */
+/* ============================= */
+
+.member_details{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+/* ============================= */
+/* TABLE HEADER */
+/* ============================= */
+
+.all_members{
+    background:#e5e7eb;
+}
+
+.table_headings{
+    text-align:left;
+    padding:14px 16px;
+    font-size:13px;
+    font-weight:600;
+    color:#374151;
+    border-bottom:1px solid #e5e7eb;
+}
+
+/* ============================= */
+/* TABLE ROWS */
+/* ============================= */
+
+.member_details td{
+    padding:14px 16px;
+    font-size:14px;
+    color:#111827;
+    border-bottom:1px solid #f1f5f9;
+}
+
+/* hover effect */
+
+.member_details tr:hover{
+    background:#f9fafb;
+}
+
+/* remove last border */
+
+.member_details tr:last-child td{
+    border-bottom:none;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media(max-width:768px){
+
+.member_details{
+font-size:13px;
+}
+
+.table_headings,
+.member_details td{
+padding:10px;
+}
+
+}

@@ -1,7 +1,7 @@
 
 function Mytaskbar(){
     return(
-        <div>
+        <div className="my_taskbar">
             Mytaskbar
         </div>
     )

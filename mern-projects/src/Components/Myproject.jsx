@@ -1,7 +1,7 @@
 
 function Myproject(){
     return(
-        <div>
+        <div className="my_projects">
            MyProject
         </div>
     )
