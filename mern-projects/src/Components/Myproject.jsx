@@ -1,7 +1,7 @@
 import {ChevronRight,KanbanIcon,ChartColumnIcon,CalendarIcon,SettingsIcon,ArrowRight} from "lucide-react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useSearchParams,useLocation, Link } from "react-router-dom";
+import { useSearchParams,useLocation, Link, useNavigation, useNavigate } from "react-router-dom";
 import "../All_CSS/MyProjectSidebar.css";
 
 function Myproject(){
@@ -25,9 +25,9 @@ function Myproject(){
     }
     return(
         <div className="my_projects_sidebar_container">
-          <button className="projects_heading" onClick={()=>navigate('/project')}>
+          <button className="projects_heading" >
             <p className="all_my_project_heading">PROJECTS</p>
-            <ArrowRight size={15}/>
+            <ArrowRight size={15} onClick={()=>navigate('/project')}/>
           </button>
           <div>
              {
@@ -59,8 +59,6 @@ function Myproject(){
                       
                       }
                      )}
-
-                    
                   </div>
                 )
               }

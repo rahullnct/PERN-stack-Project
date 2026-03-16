@@ -7,7 +7,7 @@ import Myproject from './Myproject';
 import { useDispatch, useSelector } from 'react-redux';
 import { dummyWorkspaces } from '../assets/assets';
 import { setCurrentWorkspace } from '../Slice_Pack/WorkSpaceSlice';
-// import NewWorkspace from '../All_Dialogue/NewWorkspace';
+import NewWorkspace from '../All_Dialogue/NewWorkspace';
 
 function Sidebar({isSidebarOpen,setSidebarOpen}){
     const itemname=[{
@@ -27,8 +27,9 @@ function Sidebar({isSidebarOpen,setSidebarOpen}){
     } 
 ]
 
-console.log("dummy_workspace:",dummyWorkspaces);
+// console.log("dummy_workspace:",dummyWorkspaces);
 const sideref=useRef(null);
+const[new_workspace,setnew_workspace]=useState(false);
 useEffect(()=>{
     function clickoutsidehandler(event){
         if(sideref.current && !sideref.current.contains(event.target)){
@@ -42,7 +43,7 @@ useEffect(()=>{
 
 const {workspaces}=useSelector((state)=> state.workspace);
 const currentworkspace=useSelector((state)=> state.workspace?.currentWorkspace);
-console.log("workspace:",workspaces);
+// console.log("workspace:",workspaces);
 const[isopen,setIsOpen]=useState(false);
 const dispatch=useDispatch();
 
@@ -51,10 +52,6 @@ function selectworkspace_handler(organization_id){
       setIsOpen(false);
     
 }
-
-
-
-
   return currentworkspace && (
     <div ref={sideref} className='sidebar_wrapper'  > 
     <button onClick={()=> setIsOpen((prev)=>!prev)} className='workspace'>
@@ -92,11 +89,11 @@ function selectworkspace_handler(organization_id){
                     ))
                 }
                 <div className='new_workspace_starting'>
-                 <p className='new_workspace_heading'>
+                 <p className='new_workspace_heading' onClick={()=>setnew_workspace(true)}>
                     <Plus size={15}/> New Workspace 
                  </p>
-
-                 {/* <NewWorkspace/> */}
+                     { new_workspace &&
+                      <NewWorkspace new_workspace={new_workspace} setnew_workspace={setnew_workspace}/>}
                 </div>
 
             </div>

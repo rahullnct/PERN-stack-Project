@@ -1,6 +1,6 @@
 import { useState } from "react";
 import InviteMember from "../All_Dialogue/InviteMember";
-import {UserPlus} from "lucide-react";
+import {UserPlus,Users,Activity,Shield} from "lucide-react";
 import "../All_CSS/Team.css";
 function Team(){
 
@@ -14,6 +14,11 @@ function Team(){
             [event.target.name]:event.target.value
         }))
     }
+    const teamCards=[
+        {title:"Total Members",icon: Users, card_number:1},
+        {title:"Active Projects",icon: Activity, card_number:2},
+        {title:"Total tasks",icon: Shield , card_number:3},
+    ]
     return(
         <div className="team_wrapper">
             <div className="team_container">
@@ -24,6 +29,20 @@ function Team(){
             </div>
             <button onClick={()=> setdialogueOpen(true)} className="project_dialogue_btn"><UserPlus size={15}/>Add member </button>
                     {dialogueOpen && <InviteMember dialogueOpen={dialogueOpen} setdialogueOpen={setdialogueOpen}/>}
+        </div>
+        <div className="team_cards">
+            {
+                teamCards.map((item,id)=>(
+                    <div className="cards" key={id}>
+                        <div className="my_cards">
+                     <p className="team_title">{item.title}</p>
+                     <p className="team_numbers">{item.card_number}</p>
+                    </div>
+                    <item.icon size={20}/>
+                    </div>
+                ))
+            }
+           
         </div>
           <input 
           className="search_team_member"

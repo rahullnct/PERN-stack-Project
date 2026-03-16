@@ -3,15 +3,17 @@ import {FolderOpen,UserRound,CalendarRange} from "lucide-react";
 import New_Project_Dialogue from "../All_Dialogue/New_Project_Dialogue";
 import { useSelector } from "react-redux";
 import "../All_CSS/Project.css";
+import { useNavigate, useNavigation } from "react-router-dom";
 function Projects(){
    const[dialogueOpen,setdialogueOpen]=useState(false);
-
+const navigate=useNavigate();
    const[formtype,setformtype]=useState({
     searchbar:"",priority:"",status:""
    })
  
    
    const [projects,setprojects]= useState([]);
+   console.log("projects in project page:",projects)
 const {currentWorkspace}=useSelector((state)=> state.workspace);
 useEffect(()=> {
     if(currentWorkspace){
@@ -77,7 +79,7 @@ useEffect(()=> {
                         ):(
                             
                             projects.map((project)=>(
-                                <div className="project_container">
+                                <div className="project_container" key={project.id} onClick={()=>navigate(`/project-details/${project.id}`)}>
                                 <div className="my_project_heading">
                                     <h4>{project.name}</h4>
                                      <button className="new_btn">{project.status}</button> 

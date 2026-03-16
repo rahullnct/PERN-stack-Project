@@ -1,0 +1,165 @@
+/* ============================= */
+/* MODAL OVERLAY */
+/* ============================= */
+
+.new_workspace_wrapper{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,0.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+/* ============================= */
+/* MODAL CONTAINER */
+/* ============================= */
+
+.new_workspace_container{
+    width:100%;
+    max-width:420px;
+    background:white;
+    border-radius:10px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+/* ============================= */
+/* HEADER SECTION */
+/* ============================= */
+
+.new_workspace_heading_Container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:5px;
+}
+
+/* CLOSE ICON */
+
+.new_workspace_heading_Container svg{
+    cursor:pointer;
+    color:#6b7280;
+    transition:0.2s;
+}
+
+.new_workspace_heading_Container svg:hover{
+    color:#111827;
+}
+
+/* ============================= */
+/* HEADING */
+/* ============================= */
+
+.new_workspace_heading{
+    font-size:18px;
+    font-weight:600;
+    color:#111827;
+}
+
+.logo_heading{
+    font-size:13px;
+    font-weight:500;
+    color:#374151;
+}
+
+/* ============================= */
+/* IMAGE UPLOAD */
+/* ============================= */
+
+.image_container{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo_image{
+    width:70px;
+    height:70px;
+    border:1px dashed #d1d5db;
+    border-radius:8px;
+    padding:6px;
+    cursor:pointer;
+}
+
+/* upload text area */
+
+.image_size_Container{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.image_upload_btn{
+    padding:6px 12px;
+    border:1px solid #e5e7eb;
+    border-radius:6px;
+    background:white;
+    font-size:13px;
+    cursor:pointer;
+}
+
+.image_upload_btn:hover{
+    background:#f3f4f6;
+}
+
+.image_size{
+    font-size:11px;
+    color:#6b7280;
+}
+
+/* ============================= */
+/* FORM LABELS */
+/* ============================= */
+
+.new_workspace_container label{
+    font-size:13px;
+    font-weight:500;
+    color:#374151;
+}
+
+/* ============================= */
+/* INPUTS */
+/* ============================= */
+
+.name_organization,
+.slug_organization{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid #e5e7eb;
+    border-radius:6px;
+    font-size:14px;
+    outline:none;
+}
+
+.name_organization:focus,
+.slug_organization:focus{
+    border-color:#2563eb;
+}
+
+/* ============================= */
+/* CREATE BUTTON */
+/* ============================= */
+
+.create_organization_btn{
+    margin-top:10px;
+    padding:10px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:14px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.create_organization_btn:hover{
+    background:#1d4ed8;
+}
