@@ -1,8 +1,8 @@
-import {ChevronRight,KanbanIcon,ChartColumnIcon,CalendarIcon,SettingsIcon,ArrowRight, Link} from "lucide-react";
+import {ChevronRight,KanbanIcon,ChartColumnIcon,CalendarIcon,SettingsIcon,ArrowRight} from "lucide-react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useSearchParams,useLocation } from "react-router-dom";
-
+import { useNavigate, useSearchParams,useLocation, Link } from "react-router-dom";
+import "../All_CSS/MyProjectSidebar.css";
 
 function Myproject(){
     const navigate=useNavigate();
@@ -24,23 +24,23 @@ function Myproject(){
     setexpend(newSetid);
     }
     return(
-        <div className="my_projects_container">
-          <button className="all_my_projects" onClick={()=>navigate('/project')}>
+        <div className="my_projects_sidebar_container">
+          <button className="projects_heading" onClick={()=>navigate('/project')}>
             <p className="all_my_project_heading">PROJECTS</p>
             <ArrowRight size={15}/>
           </button>
           <div>
              {
             myProjects.map((item)=>(
-              <div className="my_projects" onClick={()=> toggleProject(item.id)}>
-                <div>
+              <div className="all_my_projects" onClick={()=> toggleProject(item.id)}>
+                <div className="my_projects">
 
                 <ChevronRight size={15}/>
-                <p>{item.name}</p>
+                <p className="my_project_details">{item.name}</p>
               </div>
               {
                 expend.has(item.id) && (
-                  <div>
+                  <div className="project_detail">
                       {getProjectSubItems(item.id).map((subitem)=>{
                        
 
@@ -52,7 +52,7 @@ function Myproject(){
                         return(
                           <Link key={subitem.title} to={subitem.url}>
                               <subitem.icon />
-                               {subitem.title}
+                              {subitem.title}
 
                           </Link>
                         )
@@ -60,22 +60,7 @@ function Myproject(){
                       }
                      )}
 
-                      {/* {expandedProjects.has(project.id) && (
-                            <div className="ml-5 mt-1 space-y-1">
-                                {getProjectSubItems(project.id).map((subItem) => {
-                                    // checking if the current path matches the sub-item's URL
-                                    const isActive =
-                                        location.pathname === `/projectsDetail` &&
-                                        searchParams.get('id') === project.id &&
-                                        searchParams.get('tab') === subItem.title.toLowerCase();
-
-                                    return (
-                                        <Link key={subItem.title} to={subItem.url} className={`flex items-center gap-3 px-3 py-1.5 rounded-lg transition-colors duration-200 text-xs ${isActive ? 'bg-blue-100 text-blue-600 hover:bg-blue-200 dark:bg-blue-500/10 dark:text-blue-400 dark:hover:bg-blue-500/20' : 'text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-800'}`} >
-                                            <subItem.icon className="size-3" />
-                                            {subItem.title}
-                                        </Link>
-                                    );
-                                })} */}
+                    
                   </div>
                 )
               }

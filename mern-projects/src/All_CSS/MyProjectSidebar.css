@@ -1,0 +1,110 @@
+/* ============================= */
+/* PROJECT SIDEBAR CONTAINER */
+/* ============================= */
+
+.my_projects_sidebar_container{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+/* ============================= */
+/* PROJECTS HEADING */
+/* ============================= */
+
+.projects_heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    background:none;
+    border:none;
+    padding:6px 8px;
+    cursor:pointer;
+}
+
+.all_my_project_heading{
+    font-size:12px;
+    font-weight:600;
+    color:#6b7280;
+    letter-spacing:0.8px;
+}
+
+/* ============================= */
+/* PROJECT ITEM */
+/* ============================= */
+
+.all_my_projects{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+/* PROJECT MAIN ROW */
+
+.my_projects{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:8px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.my_projects:hover{
+    background:#f3f4f6;
+}
+
+.my_project_details{
+    font-size:14px;
+    color:#111827;
+    font-weight:500;
+}
+
+/* ============================= */
+/* PROJECT SUB MENU */
+/* ============================= */
+
+.project_detail{
+    display:flex;
+    flex-direction:column;
+    margin-left:22px;
+    gap:4px;
+}
+
+/* SUB MENU LINKS */
+
+.project_detail a{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 8px;
+    border-radius:6px;
+    text-decoration:none;
+    font-size:13px;
+    color:#4b5563;
+    transition:0.2s;
+}
+
+/* HOVER */
+
+.project_detail a:hover{
+    background:#f3f4f6;
+    color:#111827;
+}
+
+/* ACTIVE TAB */
+
+.project_detail a.active{
+    background:#eef2ff;
+    color:#2563eb;
+}
+
+/* ICON SIZE */
+
+.project_detail svg{
+    width:16px;
+    height:16px;
+}
