@@ -16,7 +16,7 @@ function App() {
       <Route path='/' element={<Layout/>}>
       <Route index element={<Dashboard/>}/>
       <Route path='/task-details' element={<TaskDetails/>}/>
-      <Route path='/project-details/:id' element={<ProjectDetail/>}/>
+      <Route path='project-details' element={<ProjectDetail/>}/>
       <Route path='/team' element={<Team/>}/>
       <Route path='project' element={<Projects/>}/>
       {/* <Route path='/settings' element={}/> */}

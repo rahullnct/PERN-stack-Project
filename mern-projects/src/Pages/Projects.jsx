@@ -3,7 +3,7 @@ import {FolderOpen,UserRound,CalendarRange} from "lucide-react";
 import New_Project_Dialogue from "../All_Dialogue/New_Project_Dialogue";
 import { useSelector } from "react-redux";
 import "../All_CSS/Project.css";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate, useNavigation,Link } from "react-router-dom";
 function Projects(){
    const[dialogueOpen,setdialogueOpen]=useState(false);
 const navigate=useNavigate();
@@ -79,8 +79,9 @@ useEffect(()=> {
                         ):(
                             
                             projects.map((project)=>(
-                                <div className="project_container" key={project.id} onClick={()=>navigate(`/project-details/${project.id}`)}>
-                                <div className="my_project_heading">
+                                // <div className="project_container" key={project.id} onClick={()=>navigate(`/project-details/${project.id}`)}>
+                                <Link to={`/project-details?id=${project.id}&tab=tasks`} className="project_container">
+                                     <div className="my_project_heading">
                                     <h4>{project.name}</h4>
                                      <button className="new_btn">{project.status}</button> 
                                 </div>
@@ -100,7 +101,9 @@ useEffect(()=> {
                                       <span className="project_text_small">0%</span>
                                     </div>
                                 <div className="progress_bar"></div>
-                                </div>
+                                </Link>
+                               
+                                // </div>
                             ))
                             
                     )
