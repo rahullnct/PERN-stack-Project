@@ -19,7 +19,7 @@ const my_task= task.filter((item)=> item.assigneeId === user.id);
 const in_progressTask= task.filter((item)=> item.status === 'IN_PROGRESS');
 const overdueTask=task.filter((item)=> item.due_date && new Date(item.due_date) < new Date(item.due_date) && item.status !== 'DONE')
 
-console.log("my_task:",my_task);
+// console.log("my_task:",my_task);
 
     return(
         <div className="my_taskbars">

@@ -1,9 +1,7 @@
-function TaskTab({newProjects}){
-   const new_project=newProjects;
-   console.log("new_projects in task tab:",new_project);
+function TaskTab(){
     return(
         <div>
-            TaskTab
+            tasktab
         </div>
     )
 };

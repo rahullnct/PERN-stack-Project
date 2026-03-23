@@ -1,0 +1,256 @@
+.task_wrapper{
+  width: 100%;
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.task_container{
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  box-sizing: border-box;
+}
+
+.task_upper_container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.heading_container{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.heading_container svg{
+  cursor: pointer;
+  color: #334155;
+  transition: all 0.2s ease;
+}
+
+.heading_container svg:hover{
+  color: #2563eb;
+  transform: translateX(-2px);
+}
+
+.task_heading{
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.task_status_container{
+  display: flex;
+  align-items: center;
+}
+
+.task_status{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.new_task_btn{
+  border: none;
+  outline: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+  transition: all 0.25s ease;
+}
+
+.new_task_btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.32);
+}
+
+.new_task_btn:active{
+  transform: scale(0.98);
+}
+
+.task_cards_container{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.single_card{
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 20px;
+  transition: all 0.25s ease;
+}
+
+.single_card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+.single_card_upper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.card_title{
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.icon_container{
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: #eff6ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card_number{
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.tabs_container{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding: 8px;
+  background: #f1f5f9;
+  border-radius: 16px;
+}
+
+.tabs{
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #475569;
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.tabs:hover{
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.tab_names{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tabs.active{
+  background: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 1100px){
+  .task_cards_container{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px){
+  .task_wrapper{
+    padding: 14px;
+  }
+
+  .task_container{
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .task_upper_container{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heading_container{
+    align-items: flex-start;
+  }
+
+  .task_heading{
+    font-size: 24px;
+  }
+
+  .new_task_btn{
+    width: 100%;
+  }
+
+  .task_cards_container{
+    grid-template-columns: 1fr;
+  }
+
+  .tabs_container{
+    justify-content: flex-start;
+  }
+
+  .tabs{
+    flex: 1 1 calc(50% - 12px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px){
+  .task_heading{
+    font-size: 20px;
+  }
+
+  .card_number{
+    font-size: 26px;
+  }
+
+  .tabs{
+    width: 100%;
+    flex: 1 1 100%;
+  }
+}

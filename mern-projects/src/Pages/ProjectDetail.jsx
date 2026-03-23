@@ -7,6 +7,7 @@ import TaskTab from "../Components/TaskTab";
 import AnalyticsTab from "../Components/AnalyticsTab";
 import CalendarTab from "../Components/CalenderTab";
 import SettingsTab from "../Components/SettingsTab";
+import "../All_CSS/ProjectDetails.css";
 function ProjectDetail({project_id}){
     const [searchParams,setSearchParams]=useSearchParams([]);
     
@@ -34,15 +35,15 @@ function ProjectDetail({project_id}){
         { title: 'Settings', icon: SettingsIcon,key: 'Settings', }
     ];
 
-    const [activeTab,setActiveTab]=useState(tab || 'tasks')
+    const [activeTab,setActiveTab]=useState(tab || 'Task')
 
     return(
         <div className="task_wrapper">
            <div className="task_container">
             <div className="task_upper_container">
                 <div className="heading_container">
-                    <ArrowLeft size={15} onClick={()=>navigate('/project')}/>
-                <h2 className="task_heading">{newProjects.name}</h2>
+                    <ArrowLeft size={20} onClick={()=>navigate('/project')}/>
+                <h3 className="task_heading">{newProjects.name}</h3>
                 <div className="task_status_container">
                     <span className="task_status">{newProjects?.status}</span>
                 </div>
@@ -72,9 +73,10 @@ function ProjectDetail({project_id}){
               <div className="tabs_container">
                 {
                     Alltabs.map((item,id)=>(
-                        <button key={item.key} onClick={()=>{setActiveTab(item.key); setSearchParams({id:new_id,tab: item.key})}} >
-                        <p>{item.title}</p>
-                        <item.icon size={15}/>
+                        <button className={`tabs ${activeTab === item.key ? "active":""}`} key={item.key} onClick={()=>{setActiveTab(item.key); setSearchParams({id:new_id,tab: item.key})}} >
+                      <item.icon size={15}/>
+                        <p className="tab_names">{item.title}</p>
+                        
                             </button>
                     
                     ))
