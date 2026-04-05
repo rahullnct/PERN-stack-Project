@@ -1,19 +1,32 @@
 import { useMemo, useState } from "react";
+import "../All_CSS/TaskTab.css";
 
 function TaskTab({newProjects}){
 
   const project=newProjects;
 console.log("task in task_tab:",project);
     const[filters,setfilter]=useState({
-        Type:"",Status:"",Priority:"",
+        Type:"",Status:"",Priority:"",assignee:"",
     })
+
+    const assigneeList = useMemo(() => {
+    return Array.from(
+      new Set(
+        (project?.tasks || [])
+          .map((item) => item.assignee?.name)
+          .filter(Boolean)
+      )
+    );
+  }, [project]);
+
+    // console.log("my assignee list",...assigneeList);
     const all_options={
         all_types:[
             {label:"all types",value:""},
-            {label:"Tasks",value:"TASKS"},
-            {label:"Bugs",value:"BUGS"},
-            {label:"Feature",value:"FEATURES"},
-            {label:"Improvments",value:"IMPROVMENTS"},
+            {label:"Tasks",value:"TASK"},
+            {label:"Bugs",value:"BUG"},
+            {label:"Feature",value:"FEATURE"},
+            {label:"Improvments",value:"IMPROVEMENT"},
             {label:"Others",value:"OTHER"},
         ],
         all_status:[
@@ -27,7 +40,13 @@ console.log("task in task_tab:",project);
             {label:"Low",value:"LOW"},
             {label:"Medium",value:"MEDIUM"},
             {label:"High",value:"HIGH"},
+        ],
+        all_assignee:[
+            {label:"all assignee", value:""},
+            ...assigneeList.map((item)=>({label:item,value:item}))
         ]
+
+
     }
     function filterhandler(event){
       setfilter((prev)=>(({
@@ -37,15 +56,16 @@ console.log("task in task_tab:",project);
     }
 
     const filterTask=useMemo(()=>{
-        return project?.tasks?.filter((item)=>{
-            const {Type,Status,Priority}=filters;
+        return (project?.tasks || []).filter((item)=>{
+            const {Type,Status,Priority,assignee}=filters;
             return (
                 (!Type || item.type === Type ) &&
                 (!Status || item.status === Status ) &&
-                (!Priority || item.priority === Priority ) 
+                (!Priority || item.priority === Priority ) && 
+                (!assignee || item.assignee?.name === assignee)
             )
         })
-    },[filters,project?.tasks])
+    },[filters,project])
     console.log("filter_task_function:",filterTask);
     return(
         <div className="task_tab_container">
@@ -71,8 +91,46 @@ console.log("task in task_tab:",project);
                     ))
                 }
             </select> 
+            <select className="all_filters"  name="assignee" value={filters.assignee} onChange={filterhandler} >
+                {
+                    all_options.all_assignee.map((item)=>(
+                        <option value={item.value}>{item.label}</option>
+                    ))
+                }
+            </select> 
             </div>
+        <div className="table_container">
+         <table >
+            <thead className="table_header">
+           <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Assignee</th>
+            <th>Due Date</th>
+            </tr> 
+            </thead>
+          <tbody className="table_datas">
            
+            {
+                filterTask.map((item)=>(
+                    <tr key={item.id}>
+                    <td>{item.title}</td>
+                    <td>{item.type}</td>
+                    <td>{item.priority}</td>
+                    <td>{item.status}</td>
+                    <td>{item.assignee?.name}</td>
+                    <td>{item.due_date}</td>
+                    </tr>
+                    
+                ))
+            }
+           
+          </tbody>  
+         </table>
+
+        </div>
         </div>
     )
 };
