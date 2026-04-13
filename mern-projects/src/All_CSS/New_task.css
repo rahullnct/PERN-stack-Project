@@ -1,0 +1,235 @@
+/* ============================= */
+/* MODAL WRAPPER */
+/* ============================= */
+
+.new_task_wrappper{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,0.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+/* ============================= */
+/* MODAL CONTAINER */
+/* ============================= */
+
+.new_task_container{
+    width:100%;
+    max-width:500px;
+    background:white;
+    border-radius:10px;
+    padding:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* ============================= */
+/* HEADING */
+/* ============================= */
+
+.new_task_container h2{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:15px;
+    color:#111827;
+}
+
+/* ============================= */
+/* FORM */
+/* ============================= */
+
+.new_task_container form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+/* LABEL */
+
+.new_task_container label{
+    font-size:13px;
+    font-weight:500;
+    color:#374151;
+}
+
+/* INPUT + TEXTAREA */
+
+.new_task_container input,
+.new_task_container textarea,
+.new_task_container select{
+    width:100%;
+    padding:10px 0px;
+    border:1px solid #e5e7eb;
+    border-radius:6px;
+    font-size:14px;
+    outline:none;
+    background:white;
+}
+
+/* TEXTAREA HEIGHT */
+
+.new_task_container textarea{
+    min-height:80px;
+    resize:none;
+}
+
+/* FOCUS */
+
+.new_task_container input:focus,
+.new_task_container textarea:focus,
+.new_task_container select:focus{
+    border-color:#2563eb;
+}
+
+/* ============================= */
+/* GRID SECTIONS */
+/* ============================= */
+
+.selection_container{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+/* ROW 1 */
+
+.type_priority{
+    display:flex;
+    gap:12px;
+}
+
+/* ROW 2 */
+
+.assignee_status{
+    display:flex;
+    gap:12px;
+}
+
+/* EACH FIELD */
+
+.type_feild,
+.priority_feild,
+.assignee_feild,
+.status_feild{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+/* ============================= */
+/* DATE FIELD */
+/* ============================= */
+
+.icon_with_calender{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid #e5e7eb;
+    border-radius:6px;
+    padding:8px 10px;
+}
+
+.icon_with_calender input{
+    border:none;
+    outline:none;
+    padding:0;
+}
+
+/* ============================= */
+/* BUTTON CONTAINER */
+/* ============================= */
+
+.can_create_Tsk_btn{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:20px;
+}
+
+/* CANCEL BUTTON */
+
+.cancel_btn{
+    padding:8px 16px;
+    background:#f3f4f6;
+    border:none;
+    border-radius:6px;
+    font-size:14px;
+    cursor:pointer;
+    color:#374151;
+    transition:0.2s;
+}
+
+.cancel_btn:hover{
+    background:#e5e7eb;
+}
+
+/* CREATE TASK BUTTON */
+
+.tsk_btn{
+    padding:8px 16px;
+    background:#2563eb;
+    border:none;
+    border-radius:6px;
+    font-size:14px;
+    color:white;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.tsk_btn:hover{
+    background:#1d4ed8;
+}
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+
+.new_task_container button{
+    margin-top:10px;
+}
+
+/* BUTTON WRAPPER (optional better layout) */
+
+.new_task_container form > button{
+    width:100%;
+}
+
+/* CREATE BUTTON */
+
+.tsk_btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px;
+    border-radius:6px;
+    font-size:14px;
+    cursor:pointer;
+}
+
+.tsk_btn:hover{
+    background:#1d4ed8;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media(max-width:600px){
+
+.new_task_container{
+    width:90%;
+    padding:18px;
+}
+
+.type_priority,
+.assignee_status{
+    flex-direction:column;
+}
+
+}
