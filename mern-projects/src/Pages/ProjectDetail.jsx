@@ -17,9 +17,8 @@ function ProjectDetail({project_id}){
     const navigate=useNavigate();
     const currentWorkspace=useSelector((state)=> state.workspace.currentWorkspace);
     const[isOpen,setisopen]=useState(false);
-    // console.log(currentWorkspace);
     let newProjects= currentWorkspace?.projects?.find((item)=> String(item.id) === String(new_id));
-    // console.log("new_projects:",newProjects);
+    // console.log("new_projects in project detail:",newProjects);
 
      const ProjectDetailCards=[
         {title:"Total Tasks",icon: Activity, card_number:1},
@@ -53,7 +52,7 @@ function ProjectDetail({project_id}){
                 </button>
                 {
                     isOpen && 
-                    <NewTask setisopen={setisopen}/>
+                    <NewTask setisopen={setisopen} project_id={new_id}/>
                 }
             </div>
          <div className="task_cards_container">
