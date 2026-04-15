@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react";
 import "../All_CSS/TaskTab.css";
-
+import {useNavigate} from "react-router-dom";
 function TaskTab({newProjects}){
 
   const project=newProjects;
+  const navigate=useNavigate();
 console.log("task in task_tab:",project);
     const[filters,setfilter]=useState({
         Type:"",Status:"",Priority:"",assignee:"",
@@ -19,6 +20,7 @@ console.log("task in task_tab:",project);
     );
   }, [project]);
 
+  const[selectedTask,setselectedTask]=useState([]);
     // console.log("my assignee list",...assigneeList);
     const all_options={
         all_types:[
@@ -103,7 +105,14 @@ console.log("task in task_tab:",project);
          <table >
             <thead className="table_header">
            <tr>
-            <th>Title</th>
+            <th>
+                <input 
+                type="checkbox"
+                onChange={()=> selectedTask.length <= 1 ? setselectedTask([]) : setselectedTask(project?.tasks?.map((item)=> item.id))}
+                checked={selectedTask.length === project?.tasks?.length}
+                />
+                Title
+            </th>
             <th>Type</th>
             <th>Priority</th>
             <th>Status</th>
@@ -115,8 +124,14 @@ console.log("task in task_tab:",project);
            
             {
                 filterTask.map((item)=>(
-                    <tr key={item.id}>
-                    <td>{item.title}</td>
+                    <tr key={item.id} onClick={()=>navigate(`/accurate_task_detail/${item.id}`)}>
+                    <td>
+                        <input 
+                        type="radio"
+                        
+                        />
+                        {item.title}
+                        </td>
                     <td>{item.type}</td>
                     <td>{item.priority}</td>
                     <td>{item.status}</td>

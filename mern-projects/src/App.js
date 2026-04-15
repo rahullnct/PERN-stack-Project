@@ -8,6 +8,7 @@ import TaskDetails from './Pages/TaskDetails';
 import ProjectDetail from './Pages/ProjectDetail';
 import Projects from './Pages/Projects';
 import Team from './Pages/Team';
+import Accurate_task from './Components/Accurate_task';
 function App() {
   
 
@@ -19,6 +20,7 @@ function App() {
       <Route path='project-details' element={<ProjectDetail/>}/>
       <Route path='/team' element={<Team/>}/>
       <Route path='project' element={<Projects/>}/>
+      <Route path='/accurate_task_detail/:id' element={<Accurate_task/>}/>
       {/* <Route path='/settings' element={}/> */}
       </Route>
     </Routes>
