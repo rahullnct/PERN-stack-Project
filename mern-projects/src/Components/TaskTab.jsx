@@ -5,7 +5,7 @@ function TaskTab({newProjects}){
 
   const project=newProjects;
   const navigate=useNavigate();
-console.log("task in task_tab:",project);
+console.log("task in task_tab:",project.id);
     const[filters,setfilter]=useState({
         Type:"",Status:"",Priority:"",assignee:"",
     })
@@ -124,7 +124,7 @@ console.log("task in task_tab:",project);
            
             {
                 filterTask.map((item)=>(
-                    <tr key={item.id} onClick={()=>navigate(`/accurate_task_detail/${item.id}`)}>
+                    <tr key={item.id} onClick={()=>navigate(`/task-details?projectId=${project.id}&taskId=${item.id}`)}>
                     <td>
                         <input 
                         type="radio"
