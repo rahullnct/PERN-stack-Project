@@ -1,0 +1,278 @@
+/* TaskDetails Page */
+
+.accurate_task_wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: #f4f7fb;
+  padding: 30px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.accurate_task_container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 25px;
+}
+
+/* LEFT SECTION */
+
+.left_section_container {
+  width: 100%;
+}
+
+.chat_section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comments_heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: #1f2937;
+  margin: 0 0 20px 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.all_Comments {
+  flex: 1;
+  background: #f9fafb;
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+  overflow-y: auto;
+}
+
+.no_comments {
+  color: #6b7280;
+  text-align: center;
+  margin-top: 80px;
+  font-size: 15px;
+}
+
+.comment_post_section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comment_post_section textarea {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #111827;
+}
+
+.comment_post_section textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.comment_post_btn {
+  align-self: flex-end;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 11px 26px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.comment_post_btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* RIGHT SECTION */
+
+.right_section_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.first_right_container,
+.second_right_container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.new_task_title {
+  font-size: 26px;
+  color: #111827;
+  margin: 0 0 18px 0;
+  font-weight: 700;
+}
+
+.task_main_details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task_status_container span,
+.task_type_container span,
+.task_priority_container span {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Badges */
+
+.task_status_container span {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.task_type_container span {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.task_priority_container span {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.task_description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4b5563;
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 12px;
+  border-left: 4px solid #2563eb;
+  margin: 0 0 20px 0;
+}
+
+.assignee_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.assignee_name {
+  background: #f3f4f6;
+  color: #111827;
+  padding: 9px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.task_due_details {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* PROJECT DETAILS */
+
+.new_project_Details {
+  font-size: 22px;
+  color: #111827;
+  margin: 0 0 18px 0;
+}
+
+.project_name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1f2937;
+  font-size: 18px;
+  margin: 0 0 15px 0;
+}
+
+.project_start_date,
+.project_Details {
+  font-size: 15px;
+  color: #4b5563;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.project_Details {
+  background: #f9fafb;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+  .accurate_task_container {
+    grid-template-columns: 1fr;
+  }
+
+  .accurate_task_wrapper {
+    padding: 20px;
+  }
+
+  .chat_section {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 600px) {
+  .accurate_task_wrapper {
+    padding: 15px;
+  }
+
+  .first_right_container,
+  .second_right_container,
+  .chat_section {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .new_task_title {
+    font-size: 22px;
+  }
+
+  .comments_heading {
+    font-size: 18px;
+  }
+
+  .assignee_details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .comment_post_btn {
+    width: 100%;
+  }
+}
