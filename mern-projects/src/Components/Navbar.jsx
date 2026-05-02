@@ -2,7 +2,7 @@ import { MoonIcon, PanelLeft, SearchIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
 import profile_image from "../assets/profile_img_o.svg";
 import "../All_CSS/Navbar.css";
-
+import {UserButton} from '@clerk/clerk-react';
 function Navbar({ setSidebarOpen }) {
   const [theme, settheme] = useState("light");
   return (
@@ -28,8 +28,9 @@ function Navbar({ setSidebarOpen }) {
               theme === "light" ? <MoonIcon className="night_mode" onClick={()=>settheme("dark")}/> : <SunIcon className="day_mode" onClick={()=> settheme("light")}/>
             }
           </button>
-
-          <img src={profile_image} alt="profile_picture" className="profile_picture" />
+{/* 
+          <img src={profile_image} alt="profile_picture" className="profile_picture" /> */}
+          <UserButton/>
 
         </div>
       </div>
